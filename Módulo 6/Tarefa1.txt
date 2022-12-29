@@ -1,0 +1,1 @@
+De forma sucinta, na programação procedural geralmente temos grandes blocos de códigos, onde uma única classe ou método é responsável por realizar diversos procedimentos, enquanto na POO dividimos o sistema em objetos que possuem seus próprios atributos e métodos, para utilizamos esses objetos criamos instâncias para cada objeto.
