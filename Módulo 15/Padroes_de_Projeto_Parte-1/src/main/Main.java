@@ -1,19 +1,21 @@
 package main;
 
-import creational.abstract_factory.AudiCarFactory;
-import creational.abstract_factory.CarFactory;
-import creational.abstract_factory.FiatCarFactory;
+import domain.entity.ICar;
+import domain.factory.AudiCarFactory;
+import domain.factory.ICarFactory;
+import domain.factory.FiatCarFactory;
+import domain.factory.FordCarFactory;
 
 public class Main {
     public static void main(String[] args) {
-        CarFactory fiatCarFactory = new FiatCarFactory("Argo", 2023, "Branco");
-        CarFactory AudiCarFactory = new AudiCarFactory("A3", 2021, "Azul");
-        generateCar(fiatCarFactory);
-        generateCar(AudiCarFactory);
-    }
-
-    public static void generateCar(CarFactory carFactory) {
-        Car car = carFactory.createCar();
-        car.printCar();
+        ICarFactory fiatICarFactory = new FiatCarFactory();
+        ICarFactory audiICarFactory = new AudiCarFactory();
+        ICarFactory fordICarFactory = new FordCarFactory();
+        ICar audiICar = fiatICarFactory.createCar("A3", 2021, "Azul");
+        ICar fiatICar = audiICarFactory.createCar("Argo", 2023, "Branco");
+        ICar fordICar = fordICarFactory.createCar("Mustang", 2022, "Preto");
+        audiICar.printCar();
+        fiatICar.printCar();
+        fordICar.printCar();
     }
 }
