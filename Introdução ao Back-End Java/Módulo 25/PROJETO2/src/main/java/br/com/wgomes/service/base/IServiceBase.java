@@ -1,4 +1,4 @@
-package br.com.wgomes.domain.service.base;
+package br.com.wgomes.service.base;
 
 import br.com.wgomes.domain.exception.AlreadyExistException;
 import br.com.wgomes.domain.exception.NotFoundException;

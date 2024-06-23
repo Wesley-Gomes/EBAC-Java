@@ -1,4 +1,4 @@
-package br.com.wgomes.unit.domain.service;
+package br.com.wgomes.unit.service;
 
 import br.com.wgomes.domain.dao.ICustomerDAO;
 import br.com.wgomes.domain.entity.CustomerEntity;
@@ -6,7 +6,7 @@ import br.com.wgomes.domain.exception.AlreadyExistException;
 import br.com.wgomes.domain.exception.NotFoundException;
 import br.com.wgomes.domain.mapper.ICustomerMapper;
 import br.com.wgomes.domain.model.Customer;
-import br.com.wgomes.domain.service.CustomerService;
+import br.com.wgomes.service.CustomerService;
 import br.com.wgomes.domain.valueobject.Cpf;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

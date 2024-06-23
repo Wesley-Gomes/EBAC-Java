@@ -1,4 +1,4 @@
-package br.com.wgomes.domain.service;
+package br.com.wgomes.service;
 
 import br.com.wgomes.domain.dao.ICustomerDAO;
 import br.com.wgomes.domain.entity.CustomerEntity;

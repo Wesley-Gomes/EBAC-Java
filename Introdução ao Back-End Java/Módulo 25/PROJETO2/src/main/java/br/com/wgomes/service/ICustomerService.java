@@ -1,8 +1,8 @@
-package br.com.wgomes.domain.service;
+package br.com.wgomes.service;
 
 import br.com.wgomes.domain.exception.NotFoundException;
 import br.com.wgomes.domain.model.Customer;
-import br.com.wgomes.domain.service.base.IServiceBase;
+import br.com.wgomes.service.base.IServiceBase;
 
 import java.util.UUID;
 
