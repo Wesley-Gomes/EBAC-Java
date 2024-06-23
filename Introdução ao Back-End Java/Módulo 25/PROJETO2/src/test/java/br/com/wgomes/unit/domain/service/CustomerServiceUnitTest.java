@@ -2,8 +2,8 @@ package br.com.wgomes.unit.domain.service;
 
 import br.com.wgomes.domain.dao.ICustomerDAO;
 import br.com.wgomes.domain.entity.CustomerEntity;
-import br.com.wgomes.domain.exption.AlreadyExistException;
-import br.com.wgomes.domain.exption.NotFoundException;
+import br.com.wgomes.domain.exception.AlreadyExistException;
+import br.com.wgomes.domain.exception.NotFoundException;
 import br.com.wgomes.domain.mapper.ICustomerMapper;
 import br.com.wgomes.domain.model.Customer;
 import br.com.wgomes.domain.service.CustomerService;

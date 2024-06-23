@@ -1,6 +1,6 @@
 package br.com.wgomes.unit.domain.valueobject;
 
-import br.com.wgomes.domain.exption.InvalidFormatException;
+import br.com.wgomes.domain.exception.InvalidFormatException;
 import br.com.wgomes.domain.valueobject.Cpf;
 import org.junit.jupiter.api.Test;
 

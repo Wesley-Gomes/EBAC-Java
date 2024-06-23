@@ -1,7 +1,7 @@
 package br.com.wgomes.domain.service.base;
 
-import br.com.wgomes.domain.exption.AlreadyExistException;
-import br.com.wgomes.domain.exption.NotFoundException;
+import br.com.wgomes.domain.exception.AlreadyExistException;
+import br.com.wgomes.domain.exception.NotFoundException;
 
 import java.util.List;
 import java.util.Optional;
