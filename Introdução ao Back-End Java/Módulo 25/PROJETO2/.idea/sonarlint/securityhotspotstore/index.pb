@@ -546,3 +546,11 @@ Q.idea/sonarlint/securityhotspotstore/0/6/06312775e7581146bfb41ecc2da8045a685b5b
 Q.idea/sonarlint/securityhotspotstore/0/0/00ba9e74c7bac1fa653cc8aae4e62f81e919bc3c,8/7/87fd31d829cfd9a61aaccad25e832f0df401bc08
 Å
 Q.idea/sonarlint/securityhotspotstore/6/1/616b222530268a1e68b16222cdc834fb5672f40a,1/8/1823cc6b0173327ef09b559864a44bbc8d8630a5
+j
+:src/main/java/br/com/wgomes/service/base/IServiceBase.java,f/5/f5f896c467f4a638596f589227d1c548c93a28ab
+u
+Esrc/test/java/br/com/wgomes/unit/service/CustomerServiceUnitTest.java,2/1/2112df860a8a38712f97fbb256976bac6f898956
+i
+9src/main/java/br/com/wgomes/service/ICustomerService.java,7/9/791d976300b62e50e94512767ff320af249a8a5f
+h
+8src/main/java/br/com/wgomes/service/CustomerService.java,3/e/3e435e28ef6e089cd77f4fd6863287a2ce9bb484
