@@ -2,11 +2,11 @@ package br.com.wgomes.unit.service;
 
 import br.com.wgomes.domain.dao.IProductDAO;
 import br.com.wgomes.domain.entity.ProductEntity;
-import br.com.wgomes.domain.exception.AlreadyExistException;
-import br.com.wgomes.domain.exception.NotFoundException;
+import br.com.wgomes.exceptions.AlreadyExistException;
+import br.com.wgomes.exceptions.NotFoundException;
 import br.com.wgomes.domain.mapper.IProductMapper;
 import br.com.wgomes.domain.model.Product;
-import br.com.wgomes.service.ProductService;
+import br.com.wgomes.services.ProductService;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

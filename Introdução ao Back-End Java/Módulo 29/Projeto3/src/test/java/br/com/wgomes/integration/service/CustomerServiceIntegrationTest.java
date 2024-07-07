@@ -1,15 +1,15 @@
 package br.com.wgomes.integration.service;
 
 import br.com.wgomes.domain.dao.ICustomerDAO;
-import br.com.wgomes.domain.exception.AlreadyExistException;
-import br.com.wgomes.domain.exception.CannotChangedException;
-import br.com.wgomes.domain.exception.NotFoundException;
+import br.com.wgomes.exceptions.AlreadyExistException;
+import br.com.wgomes.exceptions.CannotChangedException;
+import br.com.wgomes.exceptions.NotFoundException;
 import br.com.wgomes.domain.mapper.CustomerMapper;
 import br.com.wgomes.domain.mapper.ICustomerMapper;
 import br.com.wgomes.domain.model.Customer;
 import br.com.wgomes.domain.valueobject.Cpf;
 import br.com.wgomes.infra.dao.database.CustomerDAO;
-import br.com.wgomes.service.CustomerService;
+import br.com.wgomes.services.CustomerService;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

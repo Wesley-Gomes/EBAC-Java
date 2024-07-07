@@ -1,10 +1,10 @@
-package br.com.wgomes.service;
+package br.com.wgomes.services;
 
 import br.com.wgomes.domain.dao.ICustomerDAO;
 import br.com.wgomes.domain.entity.CustomerEntity;
-import br.com.wgomes.domain.exception.AlreadyExistException;
-import br.com.wgomes.domain.exception.CannotChangedException;
-import br.com.wgomes.domain.exception.NotFoundException;
+import br.com.wgomes.exceptions.AlreadyExistException;
+import br.com.wgomes.exceptions.CannotChangedException;
+import br.com.wgomes.exceptions.NotFoundException;
 import br.com.wgomes.domain.mapper.ICustomerMapper;
 import br.com.wgomes.domain.model.Customer;
 import lombok.AllArgsConstructor;

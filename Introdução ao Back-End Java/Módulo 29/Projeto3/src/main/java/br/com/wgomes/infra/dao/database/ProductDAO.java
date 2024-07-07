@@ -1,6 +1,7 @@
 package br.com.wgomes.infra.dao.database;
 
-import br.com.wgomes.config.singleton.ConnectionFactory;
+import br.com.wgomes.annotations.Table;
+import br.com.wgomes.domain.factories.ConnectionFactory;
 import br.com.wgomes.domain.dao.IProductDAO;
 import br.com.wgomes.domain.entity.ProductEntity;
 
@@ -12,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class ProductDAO implements IProductDAO {
-    private final String tableName = "PRODUCT";
+    private final String tableName = ProductEntity.class.getAnnotation(Table.class).name();
     private Connection connection;
     private PreparedStatement stmt;
     private ResultSet rs;

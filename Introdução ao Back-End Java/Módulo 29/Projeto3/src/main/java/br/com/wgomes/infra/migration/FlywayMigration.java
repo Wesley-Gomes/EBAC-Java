@@ -1,4 +1,4 @@
-package br.com.wgomes.config.db;
+package br.com.wgomes.infra.migration;
 
 import org.flywaydb.core.Flyway;
 

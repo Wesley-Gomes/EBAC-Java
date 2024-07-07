@@ -1,7 +1,7 @@
-package br.com.wgomes.service;
+package br.com.wgomes.services;
 
 import br.com.wgomes.domain.model.Customer;
-import br.com.wgomes.service.base.IServiceBase;
+import br.com.wgomes.services.base.IServiceBase;
 
 import java.util.UUID;
 

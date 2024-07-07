@@ -1,4 +1,4 @@
-package br.com.wgomes.domain.exception;
+package br.com.wgomes.exceptions;
 
 public class AlreadyExistException extends Exception {
     public AlreadyExistException(String message) {

@@ -1,4 +1,4 @@
-package br.com.wgomes.service.base;
+package br.com.wgomes.services.base;
 
 import java.util.List;
 import java.util.Optional;

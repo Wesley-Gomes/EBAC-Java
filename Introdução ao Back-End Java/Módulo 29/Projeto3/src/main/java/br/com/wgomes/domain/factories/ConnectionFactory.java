@@ -1,6 +1,6 @@
-package br.com.wgomes.config.singleton;
+package br.com.wgomes.domain.factories;
 
-import br.com.wgomes.config.db.FlywayMigration;
+import br.com.wgomes.infra.migration.FlywayMigration;
 import io.github.cdimascio.dotenv.Dotenv;
 
 import java.io.InputStream;

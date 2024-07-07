@@ -1,9 +1,9 @@
-package br.com.wgomes.service;
+package br.com.wgomes.services;
 
 import br.com.wgomes.domain.dao.IProductDAO;
 import br.com.wgomes.domain.entity.ProductEntity;
-import br.com.wgomes.domain.exception.AlreadyExistException;
-import br.com.wgomes.domain.exception.NotFoundException;
+import br.com.wgomes.exceptions.AlreadyExistException;
+import br.com.wgomes.exceptions.NotFoundException;
 import br.com.wgomes.domain.mapper.IProductMapper;
 import br.com.wgomes.domain.model.Product;
 import lombok.AllArgsConstructor;

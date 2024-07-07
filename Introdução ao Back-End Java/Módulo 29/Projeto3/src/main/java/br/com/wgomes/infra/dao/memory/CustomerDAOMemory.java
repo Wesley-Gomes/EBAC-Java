@@ -2,7 +2,7 @@ package br.com.wgomes.infra.dao.memory;
 
 import br.com.wgomes.domain.dao.ICustomerDAO;
 import br.com.wgomes.domain.entity.CustomerEntity;
-import br.com.wgomes.domain.exception.NotFoundException;
+import br.com.wgomes.exceptions.NotFoundException;
 
 import java.util.ArrayList;
 import java.util.List;

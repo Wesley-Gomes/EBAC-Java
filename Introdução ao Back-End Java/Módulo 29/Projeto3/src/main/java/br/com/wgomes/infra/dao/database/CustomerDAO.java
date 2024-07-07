@@ -1,8 +1,10 @@
 package br.com.wgomes.infra.dao.database;
 
-import br.com.wgomes.config.singleton.ConnectionFactory;
+import br.com.wgomes.domain.factories.ConnectionFactory;
 import br.com.wgomes.domain.dao.ICustomerDAO;
 import br.com.wgomes.domain.entity.CustomerEntity;
+import br.com.wgomes.annotations.Table;
+import lombok.NoArgsConstructor;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,14 +14,12 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+@NoArgsConstructor
 public class CustomerDAO implements ICustomerDAO {
-    private final String tableName = "CUSTOMER";
+    private final String tableName = CustomerEntity.class.getAnnotation(Table.class).name();
     private Connection connection;
     private PreparedStatement stmt;
     private ResultSet rs;
-
-    public CustomerDAO() {
-    }
 
     @Override
     public Optional<CustomerEntity> findByCpf(String cpf) throws Exception {

@@ -1,6 +1,6 @@
 package br.com.wgomes.domain.valueobject;
 
-import br.com.wgomes.domain.exception.InvalidFormatException;
+import br.com.wgomes.exceptions.InvalidFormatException;
 
 public record Cpf(String value) {
     public Cpf {
