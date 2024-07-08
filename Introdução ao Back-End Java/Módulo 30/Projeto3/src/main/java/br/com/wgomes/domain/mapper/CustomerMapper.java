@@ -3,23 +3,25 @@ package br.com.wgomes.domain.mapper;
 import br.com.wgomes.domain.entity.CustomerEntity;
 import br.com.wgomes.domain.model.Customer;
 import br.com.wgomes.domain.valueobject.Cpf;
+import br.com.wgomes.domain.valueobject.Email;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomerMapper implements ICustomerMapper {
-    public CustomerMapper() {
-    }
 
+@NoArgsConstructor
+public class CustomerMapper implements ICustomerMapper {
     @Override
     public CustomerEntity mapToEntity(Customer input) {
-        return new CustomerEntity(input.getCustomerId(), input.getName(), input.getCpf().value());
+        return new CustomerEntity(input.getCustomerId(), input.getName(), input.getCpf().value(), input.getEmail().value());
     }
 
     @Override
     public Customer mapToModel(CustomerEntity input) {
         Cpf cpf = new Cpf(input.getCpf());
-        return new Customer(input.getCustomerId(), input.getName(), cpf);
+        Email email = new Email(input.getEmail());
+        return new Customer(input.getCustomerId(), input.getName(), cpf, email);
     }
 
     @Override
@@ -27,7 +29,8 @@ public class CustomerMapper implements ICustomerMapper {
         List<Customer> customerList = new ArrayList<>();
         input.forEach(customerEntity -> {
             Cpf cpf = new Cpf(customerEntity.getCpf());
-            customerList.add(new Customer(customerEntity.getCustomerId(), customerEntity.getName(), cpf));
+            Email email = new Email(customerEntity.getEmail());
+            customerList.add(new Customer(customerEntity.getCustomerId(), customerEntity.getName(), cpf, email));
         });
         return customerList;
     }

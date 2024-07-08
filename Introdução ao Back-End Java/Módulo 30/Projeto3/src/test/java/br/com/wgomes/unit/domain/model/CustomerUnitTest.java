@@ -2,6 +2,7 @@ package br.com.wgomes.unit.domain.model;
 
 import br.com.wgomes.domain.model.Customer;
 import br.com.wgomes.domain.valueobject.Cpf;
+import br.com.wgomes.domain.valueobject.Email;
 import org.junit.jupiter.api.Test;
 
 import java.util.UUID;
@@ -39,8 +40,9 @@ class CustomerUnitTest {
         UUID id = UUID.randomUUID();
         String name = "Customer";
         Cpf cpf = new Cpf("12345678909");
-        Customer customer1 = new Customer(id, name, cpf);
-        Customer customer2 = new Customer(id, name, cpf);
+        Email email = new Email("test@test.com");
+        Customer customer1 = new Customer(id, name, cpf, email);
+        Customer customer2 = new Customer(id, name, cpf, email);
         assertEquals(customer1, customer2);
     }
 
@@ -49,8 +51,9 @@ class CustomerUnitTest {
         UUID id = UUID.randomUUID();
         String name = "Customer";
         Cpf cpf = new Cpf("12345678909");
-        Customer customer1 = new Customer(id, name, cpf);
-        Customer customer2 = new Customer(id, name, cpf);
+        Email email = new Email("test@test.com");
+        Customer customer1 = new Customer(id, name, cpf, email);
+        Customer customer2 = new Customer(id, name, cpf, email);
         assertEquals(customer1.hashCode(), customer2.hashCode());
     }
 
@@ -59,11 +62,13 @@ class CustomerUnitTest {
         UUID id = UUID.randomUUID();
         String name = "Customer";
         Cpf cpf = new Cpf("12345678909");
-        Customer customer = new Customer(id, name, cpf);
+        Email email = new Email("test@test.com");
+        Customer customer = new Customer(id, name, cpf, email);
         String expectedString = "Customer(" +
                 "customerId=" + id +
                 ", name=" + name +
                 ", cpf=" + cpf +
+                ", email=" + email +
                 ')';
         assertEquals(expectedString, customer.toString());
     }

@@ -5,6 +5,7 @@ import br.com.wgomes.domain.entity.CustomerEntity;
 import br.com.wgomes.domain.mapper.ICustomerMapper;
 import br.com.wgomes.domain.model.Customer;
 import br.com.wgomes.domain.valueobject.Cpf;
+import br.com.wgomes.domain.valueobject.Email;
 import br.com.wgomes.exceptions.AlreadyExistException;
 import br.com.wgomes.exceptions.CannotChangedException;
 import br.com.wgomes.exceptions.NotFoundException;
@@ -49,10 +50,11 @@ class CustomerServiceUnitTest {
     void findByCpf() throws Exception {
         // Arrange
         Cpf cpf = new Cpf("12345678909");
+        Email email = new Email("test@test.com");
         CustomerEntity customerEntity = new CustomerEntity();
         customerEntity.setName("Customer");
         customerEntity.setCpf(cpf.value());
-        Customer customer = new Customer("Customer", cpf);
+        Customer customer = new Customer("Customer", cpf, email);
 
         when(customerDAO.findByCpf(cpf.value())).thenReturn(Optional.of(customerEntity));
         when(customerMapper.mapToModel(customerEntity)).thenReturn(customer);
@@ -82,7 +84,8 @@ class CustomerServiceUnitTest {
     void save() throws Exception {
         // Arrange
         Cpf cpf = new Cpf("12345678909");
-        Customer customer = new Customer(UUID.randomUUID(), "Customer", cpf);
+        Email email = new Email("test@test.com");
+        Customer customer = new Customer(UUID.randomUUID(), "Customer", cpf, email);
         CustomerEntity customerEntity = new CustomerEntity();
         customerEntity.setName(customer.getName());
         customerEntity.setCpf(cpf.value());
@@ -106,7 +109,8 @@ class CustomerServiceUnitTest {
     void saveAlreadyExist() throws Exception {
         // Arrange
         Cpf cpf = new Cpf("12345678909");
-        Customer customer = new Customer(UUID.randomUUID(), "Customer", cpf);
+        Email email = new Email("test@test.com");
+        Customer customer = new Customer(UUID.randomUUID(), "Customer", cpf, email);
         CustomerEntity customerEntity = new CustomerEntity();
         customerEntity.setName(customer.getName());
         customerEntity.setCpf(cpf.value());
@@ -123,9 +127,10 @@ class CustomerServiceUnitTest {
         // Arrange
         UUID customerId = UUID.randomUUID();
         Cpf cpf = new Cpf("12345678909");
-        Customer customer = new Customer("Customer", cpf);
+        Email email = new Email("test@test.com");
+        Customer customer = new Customer("Customer", cpf, email);
         customer.setCustomerId(customerId);
-        CustomerEntity customerEntity = new CustomerEntity(customerId, "Customer update", cpf.value());
+        CustomerEntity customerEntity = new CustomerEntity(customerId, "Customer update", cpf.value(), email.value());
 
         when(customerDAO.findById(customerId)).thenReturn(Optional.of(customerEntity));
         when(customerMapper.mapToEntity(customer)).thenReturn(customerEntity);
@@ -148,7 +153,8 @@ class CustomerServiceUnitTest {
         // Arrange
         UUID customerId = UUID.randomUUID();
         Cpf cpf = new Cpf("12345678909");
-        Customer customer = new Customer("Customer", cpf);
+        Email email = new Email("test@test.com");
+        Customer customer = new Customer("Customer", cpf, email);
         customer.setCustomerId(customerId);
 
         when(customerDAO.findById(customerId)).thenReturn(Optional.empty());
@@ -163,9 +169,10 @@ class CustomerServiceUnitTest {
         // Arrange
         UUID customerId = UUID.randomUUID();
         Cpf cpf = new Cpf("12345678909");
-        Customer customer = new Customer("Customer", cpf);
+        Email email = new Email("test@test.com");
+        Customer customer = new Customer("Customer", cpf, email);
         customer.setCustomerId(customerId);
-        CustomerEntity customerEntity = new CustomerEntity(customerId, customer.getName(), cpf.value());
+        CustomerEntity customerEntity = new CustomerEntity(customerId, customer.getName(), cpf.value(), email.value());
 
         when(customerDAO.findById(customerId)).thenReturn(Optional.of(customerEntity));
 
@@ -207,10 +214,11 @@ class CustomerServiceUnitTest {
         // Arrange
         UUID customerId = UUID.randomUUID();
         Cpf cpf = new Cpf("12345678909");
-        CustomerEntity customerEntity = new CustomerEntity(customerId, "Customer", cpf.value());
+        Email email = new Email("test@test.com");
+        CustomerEntity customerEntity = new CustomerEntity(customerId, "Customer", cpf.value(), email.value());
 
         when(customerDAO.findById(customerId)).thenReturn(Optional.of(customerEntity));
-        when(customerMapper.mapToModel(customerEntity)).thenReturn(new Customer(customerId, "Customer", cpf));
+        when(customerMapper.mapToModel(customerEntity)).thenReturn(new Customer(customerId, "Customer", cpf, email));
 
         // Act
         Optional<Customer> customer = customerService.findById(customerId);
@@ -241,12 +249,14 @@ class CustomerServiceUnitTest {
     void findAll() throws Exception {
         // Arrange
         Cpf cpf = new Cpf("12345678909");
+        Email email = new Email("test@test.com");
         CustomerEntity customerEntity = new CustomerEntity();
         customerEntity.setCpf(cpf.value());
+        customerEntity.setEmail(email.value());
         List<CustomerEntity> customerEntities = List.of(customerEntity);
 
         when(customerDAO.findAll()).thenReturn(customerEntities);
-        when(customerMapper.mapToModelList(customerEntities)).thenReturn(List.of(new Customer("Customer", cpf)));
+        when(customerMapper.mapToModelList(customerEntities)).thenReturn(List.of(new Customer("Customer", cpf, email)));
 
         // Act
         List<Customer> customers = customerService.findAll();

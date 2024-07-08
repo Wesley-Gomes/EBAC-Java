@@ -4,6 +4,7 @@ import br.com.wgomes.domain.entity.CustomerEntity;
 import br.com.wgomes.domain.mapper.CustomerMapper;
 import br.com.wgomes.domain.model.Customer;
 import br.com.wgomes.domain.valueobject.Cpf;
+import br.com.wgomes.domain.valueobject.Email;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -18,9 +19,10 @@ class CustomerMapperUnitTest {
     void mapToEntity() {
         // Arrange
         Cpf cpf = new Cpf("12345678909");
+        Email email = new Email("test@test.com");
         UUID customerId = UUID.randomUUID();
-        Customer customer = new Customer(customerId, "Customer", cpf);
-        CustomerEntity customerEntity = new CustomerEntity(customerId, "Customer", cpf.value());
+        Customer customer = new Customer(customerId, "Customer", cpf, email);
+        CustomerEntity customerEntity = new CustomerEntity(customerId, "Customer", cpf.value(), email.value());
 
         // Act
         CustomerEntity result = customerMapper.mapToEntity(customer);
@@ -35,9 +37,10 @@ class CustomerMapperUnitTest {
     void mapToModel() {
         // Arrange
         Cpf cpf = new Cpf("12345678909");
+        Email email = new Email("test@test.com");
         UUID customerId = UUID.randomUUID();
-        Customer customer = new Customer(customerId, "Customer", cpf);
-        CustomerEntity customerEntity = new CustomerEntity(customerId, "Customer", cpf.value());
+        Customer customer = new Customer(customerId, "Customer", cpf, email);
+        CustomerEntity customerEntity = new CustomerEntity(customerId, "Customer", cpf.value(), email.value());
 
         // Act
         Customer result = customerMapper.mapToModel(customerEntity);
@@ -52,9 +55,10 @@ class CustomerMapperUnitTest {
     void mapToModelList() {
         // Arrange
         Cpf cpf = new Cpf("12345678909");
+        Email email = new Email("test@test.com");
         UUID customerId = UUID.randomUUID();
-        Customer customer = new Customer(customerId, "Customer", cpf);
-        CustomerEntity customerEntity = new CustomerEntity(customerId, "Customer", cpf.value());
+        Customer customer = new Customer(customerId, "Customer", cpf, email);
+        CustomerEntity customerEntity = new CustomerEntity(customerId, "Customer", cpf.value(), email.value());
 
         // Act
         List<Customer> result = customerMapper.mapToModelList(List.of(customerEntity));

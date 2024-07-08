@@ -19,7 +19,7 @@ class CustomerDAOMemoryUnitTest {
     @BeforeEach
     void setUp() {
         customerId = UUID.randomUUID();
-        CustomerEntity customerEntity = new CustomerEntity(customerId, "Customer", "12345678909");
+        CustomerEntity customerEntity = new CustomerEntity(customerId, "Customer", "12345678909", "test@test.com");
         customerDAOMemory.save(customerEntity);
     }
 
@@ -43,7 +43,7 @@ class CustomerDAOMemoryUnitTest {
     @Test
     void save() {
         // Arrange
-        CustomerEntity customerEntity = new CustomerEntity(UUID.randomUUID(), "New Customer", "12345678909");
+        CustomerEntity customerEntity = new CustomerEntity(UUID.randomUUID(), "New Customer", "12345678909", "test@test.com");
 
         // Act
         customerDAOMemory.save(customerEntity);
@@ -73,7 +73,7 @@ class CustomerDAOMemoryUnitTest {
     void delete() throws Exception {
         // Arrange
         UUID newCustomerId = UUID.randomUUID();
-        customerDAOMemory.save(new CustomerEntity(newCustomerId, "Customer for Delete", "12345678909"));
+        customerDAOMemory.save(new CustomerEntity(newCustomerId, "Customer for Delete", "12345678909", "test@test.com"));
 
         // Act
         customerDAOMemory.delete(newCustomerId);
@@ -118,7 +118,7 @@ class CustomerDAOMemoryUnitTest {
     @Test
     void findAll() {
         // Arrange
-        CustomerEntity customerEntity = new CustomerEntity(UUID.randomUUID(), "New Customer", "74855177083");
+        CustomerEntity customerEntity = new CustomerEntity(UUID.randomUUID(), "New Customer", "74855177083", "test@test.com");
         customerDAOMemory.save(customerEntity);
 
         // Act

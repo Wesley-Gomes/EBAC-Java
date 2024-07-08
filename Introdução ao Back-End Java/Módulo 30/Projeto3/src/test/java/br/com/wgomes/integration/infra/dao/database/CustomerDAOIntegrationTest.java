@@ -50,7 +50,7 @@ class CustomerDAOIntegrationTest {
     @Test
     void save() throws Exception {
         // Arrange
-        CustomerEntity customerEntity = new CustomerEntity(UUID.randomUUID(), "New Customer", "69446316014");
+        CustomerEntity customerEntity = new CustomerEntity(UUID.randomUUID(), "New Customer", "69446316014", "test@test.com");
 
         // Act
         customerDAO.save(customerEntity);
@@ -62,7 +62,7 @@ class CustomerDAOIntegrationTest {
     @Test
     void saveWithSameCpf() {
         // Arrange
-        CustomerEntity customerEntity = new CustomerEntity(UUID.randomUUID(), "New Customer", "12345678909");
+        CustomerEntity customerEntity = new CustomerEntity(UUID.randomUUID(), "New Customer", "12345678909", "test@test.com");
 
         // Act & Assert
         assertThrows(DAOException.class, () -> customerDAO.save(customerEntity));
@@ -75,6 +75,7 @@ class CustomerDAOIntegrationTest {
         if (optionalCustomerEntity.isEmpty()) fail("Customer not found");
         CustomerEntity customerEntity = optionalCustomerEntity.get();
         customerEntity.setName("Updated Customer");
+        customerEntity.setEmail("test@test2.com");
 
         // Act
         customerDAO.update(customerEntity);
@@ -83,13 +84,14 @@ class CustomerDAOIntegrationTest {
         // Assert
         assertTrue(customerEntityUpdated.isPresent());
         assertEquals("Updated Customer", customerEntityUpdated.get().getName());
+        assertEquals("test@test2.com", customerEntityUpdated.get().getEmail());
     }
 
     @Test
     void delete() throws Exception {
         // Arrange
         UUID newCustomerId = UUID.randomUUID();
-        customerDAO.save(new CustomerEntity(newCustomerId, "Customer for Delete", "69748794075"));
+        customerDAO.save(new CustomerEntity(newCustomerId, "Customer for Delete", "69748794075", "test@test.com"));
 
         // Act
         customerDAO.delete(newCustomerId);
@@ -142,6 +144,6 @@ class CustomerDAOIntegrationTest {
     }
 
     private CustomerEntity getCustomerEntity() {
-        return new CustomerEntity(UUID.randomUUID(), "Customer", "12345678909");
+        return new CustomerEntity(UUID.randomUUID(), "Customer", "12345678909", "test@test.com");
     }
 }

@@ -5,6 +5,7 @@ import br.com.wgomes.domain.mapper.CustomerMapper;
 import br.com.wgomes.domain.mapper.ICustomerMapper;
 import br.com.wgomes.domain.model.Customer;
 import br.com.wgomes.domain.valueobject.Cpf;
+import br.com.wgomes.domain.valueobject.Email;
 import br.com.wgomes.exceptions.AlreadyExistException;
 import br.com.wgomes.exceptions.CannotChangedException;
 import br.com.wgomes.exceptions.NotFoundException;
@@ -61,7 +62,8 @@ class CustomerServiceIntegrationTest {
     void save() throws Exception {
         // Arrange
         Cpf cpf = new Cpf("69748794075");
-        Customer customer = new Customer("Customer", cpf);
+        Email email = new Email("test@test.com");
+        Customer customer = new Customer("Customer", cpf, email);
 
         // Act
         Customer result = customerService.save(customer);
@@ -100,7 +102,8 @@ class CustomerServiceIntegrationTest {
         // Arrange
         UUID customerId = UUID.randomUUID();
         Cpf cpf = new Cpf("12345678909");
-        Customer customer = new Customer(customerId, "Customer", cpf);
+        Email email = new Email("test@test.com");
+        Customer customer = new Customer(customerId, "Customer", cpf, email);
         // Act
         assertThrows(NotFoundException.class, () -> customerService.update(customer));
     }
@@ -156,6 +159,6 @@ class CustomerServiceIntegrationTest {
     }
 
     private Customer createCustomer(String cpf) {
-        return new Customer("Customer", new Cpf(cpf));
+        return new Customer("Customer", new Cpf(cpf), new Email("test@test.com"));
     }
 }

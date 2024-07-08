@@ -28,7 +28,8 @@ public class CustomerDAO extends BaseDAO<CustomerEntity, UUID> implements ICusto
             if (rs.next()) {
                 UUID customerId = UUID.fromString(rs.getString("customer_id"));
                 String name = rs.getString("name");
-                return Optional.of(new CustomerEntity(customerId, name, cpf));
+                String email = rs.getString("email");
+                return Optional.of(new CustomerEntity(customerId, name, cpf, email));
             }
         } finally {
             closeConnection(stmt, rs);
@@ -43,7 +44,7 @@ public class CustomerDAO extends BaseDAO<CustomerEntity, UUID> implements ICusto
 
     @Override
     protected String getInsertCommand() {
-        return String.format("INSERT INTO %s (customer_id, name, cpf) VALUES (?, ?, ?)", tableName);
+        return String.format("INSERT INTO %s (customer_id, name, cpf, email) VALUES (?, ?, ?, ?)", tableName);
     }
 
     @Override
@@ -53,7 +54,7 @@ public class CustomerDAO extends BaseDAO<CustomerEntity, UUID> implements ICusto
 
     @Override
     protected String getUpdateCommand() {
-        return String.format("UPDATE %s SET name = ?, cpf = ? WHERE customer_id = ?", tableName);
+        return String.format("UPDATE %s SET name = ?, email = ? WHERE customer_id = ?", tableName);
     }
 
     @Override
@@ -61,6 +62,7 @@ public class CustomerDAO extends BaseDAO<CustomerEntity, UUID> implements ICusto
         stmt.setString(1, entity.getCustomerId().toString());
         stmt.setString(2, entity.getName());
         stmt.setString(3, entity.getCpf());
+        stmt.setString(4, entity.getEmail());
     }
 
     @Override
@@ -71,7 +73,7 @@ public class CustomerDAO extends BaseDAO<CustomerEntity, UUID> implements ICusto
     @Override
     protected void setUpdateCommandParams(PreparedStatement stmt, CustomerEntity entity) throws SQLException {
         stmt.setString(1, entity.getName());
-        stmt.setString(2, entity.getCpf());
+        stmt.setString(2, entity.getEmail());
         stmt.setString(3, entity.getCustomerId().toString());
     }
 

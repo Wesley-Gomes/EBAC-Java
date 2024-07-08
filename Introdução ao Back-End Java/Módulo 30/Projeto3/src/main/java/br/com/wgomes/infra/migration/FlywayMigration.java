@@ -3,6 +3,9 @@ package br.com.wgomes.infra.migration;
 import org.flywaydb.core.Flyway;
 
 public class FlywayMigration {
+    private FlywayMigration() {
+    }
+
     public static void execute(String url, String user, String password, String location) {
         Flyway flyway = Flyway.configure()
                 .dataSource(url, user, password)
@@ -11,8 +14,5 @@ public class FlywayMigration {
                 .baselineOnMigrate(true)
                 .load();
         flyway.migrate();
-    }
-
-    private FlywayMigration() {
     }
 }

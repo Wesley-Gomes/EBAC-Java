@@ -21,4 +21,6 @@ public class CustomerEntity {
     private String name;
     @TableColumn(name = "cpf", setJavaName = "setCpf")
     private String cpf;
+    @TableColumn(name = "email", setJavaName = "setEmail")
+    private String email;
 }

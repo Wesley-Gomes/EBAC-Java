@@ -38,8 +38,9 @@ class CustomerEntityUnitTest {
         UUID id = UUID.randomUUID();
         String name = "Customer";
         String cpf = "12345678910";
-        CustomerEntity customerEntity1 = new CustomerEntity(id, name, cpf);
-        CustomerEntity customerEntity2 = new CustomerEntity(id, name, cpf);
+        String email = "test@test.com";
+        CustomerEntity customerEntity1 = new CustomerEntity(id, name, cpf, email);
+        CustomerEntity customerEntity2 = new CustomerEntity(id, name, cpf, email);
         assertEquals(customerEntity1, customerEntity2);
     }
 
@@ -48,8 +49,9 @@ class CustomerEntityUnitTest {
         UUID id = UUID.randomUUID();
         String name = "Customer";
         String cpf = "12345678910";
-        CustomerEntity customerEntity1 = new CustomerEntity(id, name, cpf);
-        CustomerEntity customerEntity2 = new CustomerEntity(id, name, cpf);
+        String email = "test@test.com";
+        CustomerEntity customerEntity1 = new CustomerEntity(id, name, cpf, email);
+        CustomerEntity customerEntity2 = new CustomerEntity(id, name, cpf, email);
         assertEquals(customerEntity1.hashCode(), customerEntity2.hashCode());
     }
 
@@ -58,11 +60,13 @@ class CustomerEntityUnitTest {
         UUID id = UUID.randomUUID();
         String name = "Customer";
         String cpf = "12345678910";
-        CustomerEntity customerEntity = new CustomerEntity(id, name, cpf);
+        String email = "test@test.com";
+        CustomerEntity customerEntity = new CustomerEntity(id, name, cpf, email);
         String expectedString = "CustomerEntity(" +
                 "customerId=" + id +
                 ", name=" + name +
                 ", cpf=" + cpf +
+                ", email=" + email +
                 ')';
         assertEquals(expectedString, customerEntity.toString());
     }
